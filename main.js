@@ -1,11 +1,13 @@
 // touch
-const dimensionSize = 3000 // canvas size
-const shapeEdge = 2000 // shape size relative to canvas size
-const shapeDepth = 4; // recursion depth, over 4 significantly lowers performance
-const mouseSensitivity = 0.15
+const dimensionSize = 3000;         // canvas size
+const shapeEdge = 2000;             // shape size relative to canvas size
+const shapeDepth = 4;               // recursion depth, over 4 significantly lowers performance
+const mouseSensitivity = 0.15;
+const farColor = [255, 255, 255];   // colour of the fog effect
+const nearColor = [0, 0, 0];        // colour of the shape
 
 // dont touch
-const shapeHeight = Math.sqrt(2 / 3) * shapeEdge
+const shapeHeight = Math.sqrt(2 / 3) * shapeEdge;
 const canvasDimensions = [dimensionSize, dimensionSize];
 const baseShapeVertices = [
     [0, -shapeHeight * 2 / 3, 0],
@@ -13,9 +15,6 @@ const baseShapeVertices = [
     [shapeEdge / 2, shapeHeight / 3, shapeHeight / 3],
     [0, shapeHeight / 3, -shapeHeight * 2 / 3]
 ].map(v => v.map(i => i + dimensionSize / 2));
-
-const farColor = [255, 255, 255];
-const nearColor = [0, 0, 0];
 
 
 
@@ -163,8 +162,7 @@ function render() {
         
         ctx.fill();
         ctx.stroke();
-    }
-    
+    };
 }
 
-render()
+render();
