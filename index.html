@@ -3,6 +3,11 @@
 <head>
 <style>
 
+body {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 canvas {
     position: absolute;
     top: 50%;
@@ -12,10 +17,42 @@ canvas {
     width: 100vh;
 }
 
+label {
+    margin: 5% 0% 0% 5%;
+}
+
+input {
+    width: 70%;
+    height: 12%;
+    margin: 5% 0% 0% 5%;
+}
+
+#settings {
+    box-sizing:unset;
+    position: absolute;
+    top: 2vh;
+    left: 2vh;
+    height: 300px;
+    width: 300px;
+    background-color: #404040;
+    outline: 2px solid #202020;
+}
+
 </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
+    <div id="settings">
+        <label>RX:</label>
+        <input placeholder="0" id="x-rotation">
+        <label>RY:</label>
+        <input placeholder="0" id="y-rotation">
+        <label>RZ:</label>
+        <input placeholder="0" id="z-rotation">
+    </div>
+    
+    <script src="globals.js"></script>
     <script src="main.js"></script>
+    <script src="input-handler.js"></script>
 </body>
 </html>
