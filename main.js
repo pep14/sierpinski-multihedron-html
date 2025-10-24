@@ -38,14 +38,16 @@ document.addEventListener("mouseup", (_) => mouseDown = false);
 document.addEventListener('mousemove', (event) => {
     if (!mouseDown) return;
 
-    const deltaX = event.clientX - lastMousePos[0];
-    const deltaY = event.clientY - lastMousePos[1];
+    const dx = event.clientX - lastMousePos[0];
+    const dy = event.clientY - lastMousePos[1];
 
     rotation = [
-        rotation[0] - deltaY * mouseSensitivity,
-        rotation[1] + deltaX * mouseSensitivity,
-        rotation[2]
+        rotation[0] -= dy * mouseSensitivity * Math.cos(degToRad(rotation[1])),
+        rotation[1] += dx * mouseSensitivity,
+        rotation[2],
     ];
+
+    console.log(rotation)
 
     render();
 
@@ -147,7 +149,6 @@ function render() {
         )
     );
 
-    console.log(faces)
     for (const face of faces) {
         const color = interpolateRGB(face[3] / dimensionSize);
 
