@@ -42,12 +42,14 @@ document.addEventListener('mousemove', (event) => {
     const dy = event.clientY - lastMousePos[1];
 
     rotation = [
-        rotation[0] -= dy * mouseSensitivity * Math.cos(degToRad(rotation[1])),
-        rotation[1] += dx * mouseSensitivity,
+        rotation[0] - dy * mouseSensitivity,
+        rotation[1] + dx * mouseSensitivity,
         rotation[2],
-    ];
+    ].map(i => i.toFixed(2) % 360);
 
-    console.log(rotation)
+    xRotationInput.value = rotation[0];
+    yRotationInput.value = rotation[1];
+    zRotationInput.value = rotation[2];
 
     render();
 
