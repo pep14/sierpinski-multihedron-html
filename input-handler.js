@@ -4,13 +4,12 @@
 })
 
 function formatDegInput(input) {
-    const value = input.value.stripNonDec() % 360;
+    var value = input.value.stripNonDec();
 
-    if (value % 360 == 0) {
-        input.value = 0;
-    } else {
-        input.value = value;
-    }
+    if (value.includes("-")) value = -value.replace("-", "")
+
+    value = ((value % 360) + 360) % 360;
+    input.value = parseFloat(value.toFixed(2));
 
     rotation = [
         xRotationInput,
@@ -22,5 +21,5 @@ function formatDegInput(input) {
 }
 
 String.prototype.stripNonDec = function() {
-    return this.replace(/[^0-9]/g, "");
+    return this.replace(/[^0-9.-]/g, "");
 }
