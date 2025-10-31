@@ -1,11 +1,13 @@
 // touch
 const dimensionSize = 3000;         // canvas size
 const shapeEdge = 2000;             // shape edge size relative to canvas size
-const shapeDepth = 4;               // recursion depth, over 4 significantly lowers performance
 const mouseSensitivity = 0.15;
 const farColor = [255, 255, 255];   // RGB colour of the fog effect
 const nearColor = [0, 0, 0];        // RGB colour of the shape
-const shadowSideStrength = 0.05     // side darkness multiplier. 0 means no shadow, 1 means only fully lit/dim
+const shadowSideStrength = 0.05;    // side darkness multiplier. 0 means no shadow, 1 means only fully lit/dim
+
+// maybe touch
+const depthInputMax = 5;            // over 4 depth greatly worsens performance
 
 // dont touch
 const shapeHeight = Math.sqrt(2 / 3) * shapeEdge;
@@ -24,7 +26,6 @@ const ctx = canvas.getContext("2d");
 
 var mouseDown = false;
 var lastMousePos = [0, 0];
-var rotation = [0, 0, 0];
 
 canvas.setAttribute("width", canvasDimensions[0]);
 canvas.setAttribute("height", canvasDimensions[1]);

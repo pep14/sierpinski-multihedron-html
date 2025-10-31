@@ -3,6 +3,8 @@
     input.value = 0;
 })
 
+depthInput.addEventListener("input", formatDepthInput)
+
 function formatDegInput(input) {
     var value = input.value.stripNonDec();
 
@@ -17,7 +19,20 @@ function formatDegInput(input) {
         zRotationInput,
     ].map(i => Number(i.value));
 
-    render()
+    render();
+}
+
+function formatDepthInput() {
+    var value = depthInput.value.charAt(1);
+    
+    if (value == '' || value == 0) {
+        shapeDepth = 0;
+    } else if (1 <= value && value <= depthInputMax) {
+        shapeDepth = value;
+    };
+
+    depthInput.value = shapeDepth;
+    render();
 }
 
 String.prototype.stripNonDec = function() {
