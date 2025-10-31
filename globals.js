@@ -5,6 +5,6 @@ const zRotationInput = document.getElementById("z-rotation");
 const depthInput = document.getElementById("depth");
 
 var rotation = [0, 0, 0];
-var shapeDepth = 3;
+var shapeDepth = 4;
 
 depthInput.value = shapeDepth;
